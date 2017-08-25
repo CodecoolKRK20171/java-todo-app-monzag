@@ -31,6 +31,14 @@ public class TodoItem{
     }
 
     // equal method??
+
+    public String getName() {
+        return name;
+    }
+
+    public Boolean getIsDone() {
+        return isDone;
+    }
     
     
 }
