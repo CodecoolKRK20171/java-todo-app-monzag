@@ -30,12 +30,6 @@ public class TodoItem{
         return info;
     }
 
-    // equal method??
-
-    public String getName() {
-        return name;
-    }
-
     public Boolean getIsDone() {
         return isDone;
     }
