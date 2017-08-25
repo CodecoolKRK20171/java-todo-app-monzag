@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Class representing a todo list.
@@ -9,8 +10,7 @@ public class TodoList{
     private ArrayList<TodoItem> listOfItems;
 
     public TodoList() {
-        listOfItems = new ArrayList<>();
-        this.listOfItems = listOfItems;
+        this.listOfItems = new ArrayList<TodoItem>();
     }
 
     public void addItem(TodoItem item) {
@@ -19,16 +19,21 @@ public class TodoList{
 
     public void markItem(Integer index) {
         TodoItem item = listOfItems.get(index);
-         item.setIsDone();
+        item.setIsDone();
+        System.out.println(item.getIsDone());
      }
 
     public void archive() {
-        for (TodoItem item : listOfItems) {
+        for (Iterator<TodoItem> iter = listOfItems.iterator(); iter.hasNext(); ) {
+            TodoItem item = iter.next();
             if (item.getIsDone() == true) {
-                listOfItems.remove(item);
+                iter.remove();
             }
         }
     }
 
+    public ArrayList<TodoItem> getItemList() {
+        return listOfItems;
+    }
 
 }
